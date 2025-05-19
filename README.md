@@ -2,7 +2,7 @@
 
 Group Members:
 
-*
+* Chelsea Rianto (34734260)
 *
 *
 
