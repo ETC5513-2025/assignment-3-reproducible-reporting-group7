@@ -1,0 +1,6 @@
+---
+title: "Assignment 3 Paper"
+author: "Chelsea Rianto (34734260), ..., ..."
+format: html
+editor: visual
+---
