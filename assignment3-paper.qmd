@@ -1,6 +1,9 @@
 ---
 title: "Assignment 3 Paper"
-author: "Chelsea Rianto (34734260), ..., ..."
-format: html
+author: "Chelsea Rianto (34734260) and Yashitta Bawa (35777591)"
+format: 
+  html:
+      toc: TRUE
+  pdf: default
 editor: visual
 ---
