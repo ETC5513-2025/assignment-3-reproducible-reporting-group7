@@ -7,3 +7,22 @@ format:
   pdf: default
 editor: visual
 ---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(echo = TRUE) 
+knitr::opts_chunk$set(message = FALSE) 
+knitr::opts_chunk$set(warning = FALSE) 
+```
+
+```{r Loaded libraries}
+library(tidyverse)
+library(janitor)
+library(here)
+library(kableExtra)
+```
+
+# Read in Raw Data
+```{r Read in the data}
+education_data <- read_csv(here("data/Education_data.csv"))
+```
+
