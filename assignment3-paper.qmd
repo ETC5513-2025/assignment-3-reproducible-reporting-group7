@@ -1,14 +1,35 @@
 ---
 title: "Assignment 3 Paper"
-author: "Chelsea Rianto (34734260), Yashitta Bawa ()"
-format: pdf
+author: "Chelsea Rianto (34734260) and Yashitta Bawa (35777591)"
+format: 
+  html:
+      toc: TRUE
+  pdf: default
 editor: visual
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(echo = TRUE) 
+knitr::opts_chunk$set(message = FALSE) 
+knitr::opts_chunk$set(warning = FALSE) 
+```
+
+```{r Loaded libraries}
+library(tidyverse)
+library(janitor)
+library(here)
+library(kableExtra)
+```
+
+# Read in Raw Data
+```{r Read in the data}
+education_data <- read_csv(here("data/Education_data.csv"))
+```
 ---
 
 ## Table of Contents
 
 ## Executive Summary
 
-
 ## Introduction
-This dataset looks at how different town characteristics affect the education outcomes of young people in England. It covers towns of all sizes, from small rural areas to large urban areas, and also notes whether a town is located near the coast. The main focus is on what young people are doing at age 19 and 22, such as what qualifications they've earned and whether they’re in full-time education or work. Key indicators include the average education score by age 22, qualification levels, and types of activity at age 19, such as employment or apprenticeships. By comparing these outcomes across towns, we can explore whether larger towns or certain regions are linked to better educational results. The dataset also highlights differences between types of towns, like rural versus coastal, to better understand regional inequalities. It tracks how many young people are in apprenticeships, working, or not involved in education or training. These details make it possible to explore which factors, like town size, location, or economy—best predict strong education outcomes. The findings could help inform regional policy and guide where support and resources are most needed. Ultimately, this data offers valuable insight into how where someone grows up can shape their education journey.
+This dataset looks at how different town characteristics affect the education outcomes of young people in England. It covers towns of all sizes, from small rural areas to large urban areas, and also notes whether a town is located near the coast. The main focus is on what young people are doing at age 19 and 22, such as what qualifications they've earned and whether they’re in full-time education or work. Key indicators include the average education score by age 22, qualification levels, and types of activity at age 19, such as employment or apprenticeships. By comparing these outcomes across towns, we can explore whether larger towns or certain regions are linked to better educational results. The dataset also highlights differences between types of towns, like rural versus coastal, to better understand regional inequalities. It tracks how many young people are in apprenticeships, working, or not involved in education or training. These details make it possible to explore which factors, like town size, location, or economy that best predicts strong education outcomes. The findings could help inform regional policy and guide where support and resources are most needed. Ultimately, this data offers valuable insight into how where someone grows up can shape their education journey.
