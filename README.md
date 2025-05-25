@@ -3,7 +3,6 @@
 Group Members:
 
 * Chelsea Rianto (34734260)
-*
-*
+* Yashitta Bawa (35777591)
 
-Topic: 
+Topic: How Towns Affect Young People's Education in England
