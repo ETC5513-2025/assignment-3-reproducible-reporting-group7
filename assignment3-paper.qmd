@@ -15,15 +15,19 @@ knitr::opts_chunk$set(warning = FALSE)
 ```
 
 ```{r Loaded libraries}
+#| echo: false
 library(tidyverse)
 library(janitor)
 library(here)
 library(kableExtra)
+library(dplyr)
+library(tidygeocoder)
 ```
 
-# Read in Raw Data
 ```{r Read in the data}
-education_data <- read_csv(here("data/Education_data.csv"))
+#| echo: false
+education_data <- read_csv(here("data/Education_data.csv")) %>% 
+  clean_names()
 ```
 ---
 
@@ -59,5 +63,66 @@ knitr::kable(data.frame(
                   "Standardized education score for comparison",
                   "Percentage in full-time higher education at age 19")
 ))
+```
+
+## Results
+
+Figure @fig-map shows the spatial distribution of education scores across English towns. Higher scores tend to cluster in the East and South East regions, particularly around Cambridge, Oxford, and the commuter belt near London. In contrast, towns in the North and some coastal regions report lower average education scores by age 22. This geographic trend reflects broader regional disparities in post-secondary educational outcomes.
+
+We also explored which characteristics might predict full-time education participation at age 19. While factors such as university presence, income levels, and town size appeared relevant, further analysis was limited by non-numeric data types and inconsistent indicator formats. As such, we focused on mapping overall education performance, which more reliably captured spatial patterns in town-level outcomes.
+
+These results suggest that both regional context and access to educational infrastructure play a role in shaping long-term academic achievement. The map highlights specific areas where targeted investment or policy support may improve educational trajectories.
+
+```{r Extracted unique towns}
+#| echo: false
+town_coords <- education_data %>%
+  distinct(town11nm) %>%
+  mutate(town11nm = tolower(gsub(" BUA", "", town11nm))) %>%
+  geocode(address = town11nm, 
+          method = "osm", 
+          lat = latitude, 
+          long = longitude)
+```
+
+```{r Joined datasets}
+#| echo: false
+education_geo <- education_data %>%
+  mutate(town11nm = tolower(gsub(" BUA", "", town11nm))) %>%
+  left_join(town_coords, by = "town11nm") %>%
+  filter(!is.na(latitude), 
+         !is.na(longitude))
+```
+
+```{r Map}
+#| echo: false
+uk_map <- map_data("world", region = "UK")
+
+ggplot() +
+  geom_polygon(data = uk_map, 
+               aes(x = long, 
+                   y = lat, 
+                   group = group),
+               fill = "grey95", 
+               color = "white") +
+  geom_point(data = education_geo,
+             aes(x = longitude,
+                 y = latitude, 
+                 fill = education_score),
+             shape = 21, 
+             size = 2.5, 
+             color = "white") +
+  scale_fill_viridis_c(name = "Education Score", 
+                       option = "D", 
+                       direction = -1) +
+  coord_quickmap(xlim = c(-7, 2), 
+                 ylim = c(49.5, 56)) +
+  labs(
+    subtitle = "Figure 1. Education Score by Town",
+    caption = "Source: UK Government Education Dataset") +
+  theme_bw() +
+  theme(
+    legend.position = "bottom",
+    axis.text = element_blank(),
+    axis.title = element_blank())
 ```
 
