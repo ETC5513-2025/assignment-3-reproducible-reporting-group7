@@ -139,3 +139,13 @@ The lower performance observed in smaller or more remote towns also raises conce
 The analysis highlights a strong connection between town characteristics and educational attainment. Towns in economically advantaged or university-adjacent regions are more likely to report higher average education scores, while others—particularly in the North or on the coast—tend to fall behind. This reflects a broader need to address structural imbalances in education access and support across the country.
 
 Despite some limitations, the results point toward meaningful spatial trends that should inform future policy. Ensuring that young people, regardless of where they live, have equal access to quality education remains a critical goal.
+
+## Recommendations
+
+- **Prioritise Investment in Underserved Regions:** Towns with consistently lower education scores—particularly in the North and coastal areas—should receive targeted funding and policy attention.
+
+- **Improve Data Consistency:** Future datasets should aim for clearer documentation and standardized variable formats to enable more robust modelling and comparative analysis.
+
+- **Expand Local Education Support:** Increasing access to higher education in smaller towns through outreach, transport support, and scholarship programs could help address current gaps.
+
+- **Conduct Further Research:** Future studies could explore interactions between economic indicators, infrastructure quality, and education outcomes to build a more holistic understanding of regional disparities.
