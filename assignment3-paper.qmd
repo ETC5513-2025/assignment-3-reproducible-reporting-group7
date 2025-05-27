@@ -22,6 +22,7 @@ library(here)
 library(kableExtra)
 library(dplyr)
 library(tidygeocoder)
+library(viridis)
 ```
 
 ```{r Read in the data}
@@ -42,15 +43,17 @@ This report examines how the characteristics of English towns—such as size, lo
 This dataset looks at how different town characteristics affect the education outcomes of young people in England. It covers towns of all sizes, from small rural areas to large urban areas, and also notes whether a town is located near the coast. The main focus is on what young people are doing at age 19 and 22, such as what qualifications they've earned and whether they’re in full-time education or work. Key indicators include the average education score by age 22, qualification levels, and types of activity at age 19, such as employment or apprenticeships. By comparing these outcomes across towns, we can explore whether larger towns or certain regions are linked to better educational results. The dataset also highlights differences between types of towns, like rural versus coastal, to better understand regional inequalities. It tracks how many young people are in apprenticeships, working, or not involved in education or training. These details make it possible to explore which factors, like town size, location, or economy that best predicts strong education outcomes. The findings could help inform regional policy and guide where support and resources are most needed. Ultimately, this data offers valuable insight into how where someone grows up can shape their education journey.
 
 ## Methodology
-This study investigates how the size and characteristics of towns relate to educational outcomes among young people in England. Specifically, it addresses two research questions: 
-1. How does town size influence average education scores or qualifications achieved by age 22?
-2. Which town characteristics are most predictive of full-time education participation at age 19?
 
-The analysis is conducted in RStudio, data cleaning and transformation are performed with `tidyverse`, and summary statistics and visualizations are produced using `ggpplot2` and `dplyr`. The dataset is from the UK government’s records on towns, demographics, and education indicators, including population size, qualification levels, and employment activity by age group.
+This study investigates how town size and characteristics relate to educational outcomes among young people in England. It addresses two research questions:  
+1. How does town size influence average education scores or qualifications achieved by age 22?  
+2. Which town characteristics are most predictive of full-time higher education participation at age 19?
 
-After removing rows with missing or placeholder values, numeric transformations are applied where appropriate. Towns are grouped into four size categories: Cities, Large Towns, Medium Towns, and Small Towns. To examine relationships, we will use correlation analysis and linear modeling for the first research question. For the second research question, logistic regression and feature importance ranking will be applied to identify key predictors of full-time education participation at age 19.
+The analysis was conducted in RStudio. Data cleaning and transformation were performed using the `tidyverse` suite, and visualizations were generated with `ggplot2`. The dataset originates from UK government sources and includes demographic, geographic, and education indicators such as population size, education scores, and age-based activity.
 
-Table @tbl-dict outlines the key variables used in the analysis.
+After filtering rows with missing or placeholder values, relevant variables were standardized and numeric transformations were applied where necessary. Towns were grouped into four size categories: Cities, Large Towns, Medium Towns, and Small Towns. Correlation analysis and linear regression were used to explore the relationship between town size and education scores. Logistic regression and feature importance analysis were applied to identify predictors of full-time higher education participation at age 19.
+
+**Table @tbl-dict** presents key variables used in the analysis. **Figure @fig-size-distribution** shows the distribution of towns by size category, providing context for how towns are represented in the dataset.
+
 ```{r tbl-dict, tbl-cap="Table 1. Data Dictionary of Key Variables Used"}
 #| echo: false
 knitr::kable(data.frame(
@@ -63,8 +66,34 @@ knitr::kable(data.frame(
                   "Population according to the 2011 UK Census",
                   "Average qualification score achieved by age 22",
                   "Standardized education score for comparison",
-                  "Percentage in full-time higher education at age 19")
-))
+                  "Percentage in full-time higher education at age 19")))
+```
+
+```{r fig-size-distribution, fig-cap="Figure 1. Distribution of Towns by Size Category"}
+#| echo: false
+education_data %>%
+  count(size_flag) %>%
+  ggplot(aes(x = reorder(size_flag, -n),
+             y = n, 
+             fill = size_flag)) +
+  geom_col(show.legend = FALSE, 
+           width = 0.7) +
+  scale_fill_viridis_d(option = "plasma", 
+                       begin = 0.2, 
+                       end = 0.85) +
+  labs(
+    title = "Town Size Breakdown",
+    x = "Town Size Category",
+    y = "Number of Towns") +
+  theme_bw(base_size = 12) +
+  theme(
+    plot.title = element_text(hjust = 0.5, 
+                              face = "bold"),
+    axis.text.x = element_text(angle = 45, 
+                               hjust = 1),
+    axis.text = element_text(color = "black"),
+    panel.grid.major.y = element_blank(),
+    panel.grid.minor = element_blank())
 ```
 
 ## Results
