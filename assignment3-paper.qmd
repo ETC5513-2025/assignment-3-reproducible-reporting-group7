@@ -3,6 +3,8 @@ title: "Impact of Towns on Young Adults' Education in England"
 author: "Chelsea Rianto (34734260) and Yashitta Bawa (35777591)"
 format: 
   html:
+      css: styles.css
+      code-fold: TRUE
       toc: TRUE
   pdf: default
 editor: visual
@@ -31,8 +33,6 @@ education_data <- read_csv(here("data/Education_data.csv")) %>%
   clean_names()
 ```
 ---
-
-## Table of Contents
 
 ## Executive Summary
 
