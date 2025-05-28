@@ -1,26 +1,16 @@
 ---
 title: "Impact of Towns on Young Adults' Education in England"
-author: "Chelsea Rianto (34734260) and Yashitta Bawa (35777591)"
+author: 
+       - Chelsea Rianto (34734260)
+       - Yashitta Bawa (35777591)
 format:
   revealjs:
-    toc: true
+    theme: simple
+    css: presentation.css
     slide-number: true
     transition: fade
-    theme: default
+    toc: true
+    center: false
 editor: visual
 ---
 
-## Executive Summary
-* Examines how town size, location, and population affect education outcomes in England
-* Stronger education outcomes near major universities, especially in the South East
-* Coastal and northern towns tend to lag behind
-* Highlights need for targeted investment to address regional disparities.
-
-
-## Introduction
-* Dataset includes town sizes of large, medium, and small
-* Includes coastal proximity and demographics
-* Focus on outcomes at age 19 and 22:
-  * Qualification levels
-  * Full-time education or employment
-* Key indicators: education score, employment types, apprenticeship participation
