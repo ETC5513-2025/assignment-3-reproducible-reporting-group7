@@ -1,0 +1,218 @@
+.reveal {
+  background-color: #FFF8DE;
+  font-family: 'Helvetica Neue', sans-serif;
+  color: #333;
+}
+
+.reveal h1,
+.reveal h2,
+.reveal h3 {
+  color: #2b2b2b;
+  font-family: 'Rubik One', sans-serif;
+  font-weight: bold;
+  text-align: center;
+}
+
+.reveal h1 {
+  font-size: 1.8em;  /* Reduced from 2.2em */
+  text-align: center;
+  text-decoration: underline;
+  margin-bottom: 20px;
+  line-height: 1.2;  /* Optional: tighter spacing */
+}
+
+.reveal h2 {
+  font-size: 1.8em;
+  margin-bottom: 15px;
+}
+
+.reveal h3 {
+  font-size: 1.4em;
+  margin-bottom: 8px;
+}
+
+.reveal p,
+.reveal li {
+  font-size: 1em;
+  line-height: 1.4;
+  margin: 0.5em 0;
+}
+
+.reveal ul {
+  margin-left: 1.5em;
+}
+
+.reveal a {
+  color: #AD3801;
+  text-decoration: none;
+}
+
+.reveal a:hover {
+  color: #FF7001;
+  text-decoration: underline;
+}
+
+.reveal .slide {
+  padding: 10px 20px;
+}
+
+.reveal table {
+  background-color: #FFF8DE;
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 1em;
+  margin-top: 1em;
+}
+
+.reveal table th,
+.reveal table td {
+  border: 1px solid #33333330;
+  padding: 0.5em;
+  text-align: left;
+}
+
+.reveal table th {
+  background-color: #f8d487;
+}
+
+.reveal figure {
+  background-color: #aecbb8;
+  padding: 1em;
+  border-radius: 15px;
+  box-shadow: 8px 4px 4px #00000040;
+  margin-top: 1.5em;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.reveal figure img {
+  width: 48%;
+}
+
+.reveal figure .text {
+  width: 48%;
+  font-size: 0.95em;
+}
+
+.reveal figcaption {
+  text-align: center;
+  margin-top: 0.5em;
+  font-size: 1em;
+  color: #444;
+}
+
+.bounding-box {
+  padding: 10px 20px;
+  border-radius: 15px;
+  box-shadow: 10px 5px 5px #00000040;
+  margin: 20px 0;
+}
+
+.bounding-box p,
+.bounding-box li {
+  font-size: 0.8em;
+  line-height: 1.3;
+  margin-bottom: 0.4em;
+}
+
+.bounding-box-results-3 li > ul {
+  margin: 0 !important;
+  padding-left: 1em;
+}
+
+.bounding-box-results-3 li > ul > li {
+  margin: 0.1em 0 !important;
+  line-height: 1.2 !important;
+  padding: 0 !important;
+}
+
+.bounding-box-results-3 p,
+.bounding-box-results-3 li {
+  line-height: 1.2 !important;
+  margin-bottom: 0.4em !important;
+}
+
+.bounding-box-results-3 .slide-flex .left p,
+.bounding-box-results-3 .slide-flex .left li {
+  line-height: 1.2 !important;
+  margin-bottom: 0.3em !important;
+}
+
+.bounding-box-intro,
+.bounding-box-description,
+.bounding-box-methods,
+.bounding-box-results-1,
+.bounding-box-results-2,
+.bounding-box-results-3,
+.bounding-box-conclusion,
+.bounding-box-recommendations {
+  background-color: #84a48b;
+}
+
+.slide-flex {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.slide-flex .left,
+.slide-flex .right {
+  width: 48%;
+}
+
+@media screen and (max-width: 768px) {
+  .slide-flex {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .slide-flex .left,
+  .slide-flex .right {
+    width: 100%;
+  }
+}
+
+.reveal .centered {
+  text-align: center;
+}
+
+.reveal .slide {
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.smaller-text p,
+.smaller-text li {
+  font-size: 0.85em;
+  line-height: 1.3;
+}
+
+.custom-layout {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.map-top-right {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 35%;
+  max-width: 300px;
+}
+
+.text-wrap {
+  padding-right: 36%;
+  font-size: 1em;
+  line-height: 1.5;
+}
+
+.reveal .smaller-heading h2 {
+  font-size: 1.4em !important;
+  line-height: 1.2em;
+}
