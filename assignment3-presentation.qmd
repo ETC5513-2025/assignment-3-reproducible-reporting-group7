@@ -14,3 +14,11 @@ format:
 editor: visual
 ---
 
+## Problem Introduction
+::: {.bounding-box-intro .smaller-text}
+- Education outcomes vary significantly across the UK, often tied to geographic and socio-economic factors.
+- We explore whether characteristics like town size, population, and location influence young people’s access to higher education.
+- Focus is on participation in full-time higher education at ages 19 and 22.
+- The goal: Identify which town-level factors predict better education outcomes and where policy support might be needed.
+:::
+
