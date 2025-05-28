@@ -59,3 +59,31 @@ editor: visual
 
 ::::
 
+## Results: Predictors & Regional Disparities {.smaller-heading}
+
+::: {.bounding-box-results-3 .smaller-text}
+
+::: {.slide-flex}
+
+::: {.left}
+- **Most Predictive Factors:**
+  - Parental education level
+  - Parental employment
+  - Household income proxy
+  - Region (South East & London)
+
+- **Interpretation:**
+  Stable, educated households increase the likelihood of higher education.
+  
+- **Regional Outcomes:**
+  Southern areas outperform; northern/coastal towns lag behind, revealing persistent geographic inequalities.
+:::
+
+::: {.right}
+![](assignment3-paper_files/figure-html/fig-map-1.png){width="85%"}
+:::
+
+:::
+
+:::
+
