@@ -87,3 +87,10 @@ editor: visual
 
 :::
 
+## Conclusions
+::: {.bounding-box-conclusion}
+- Clear disparities exist across town size and region.
+- Education outcomes are better in larger towns and the South.
+- Policy efforts could help support youth in smaller or coastal towns by improving access and local resources.
+:::
+
