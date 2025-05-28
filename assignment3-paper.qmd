@@ -1,11 +1,14 @@
 ---
 title: "Impact of Towns on Young Adults' Education in England"
-author: "Chelsea Rianto (34734260) and Yashitta Bawa (35777591)"
+author: 
+       - Chelsea Rianto (34734260)
+       - Yashitta Bawa (35777591)
 format: 
   html:
-      css: styles.css
-      code-fold: TRUE
-      toc: TRUE
+    toc: TRUE
+    toc-title: "Table of contents"
+    toc-location: right
+    css: styles.css
   pdf: default
 editor: visual
 ---
@@ -34,7 +37,7 @@ education_data <- read_csv(here("data/Education_data.csv")) %>%
 ```
 
 ------------------------------------------------------------------------
-
+::: {.bounding-box}
 ## Executive Summary
 
 This report examines how the characteristics of English towns—such as size, location, and population—relate to education outcomes at ages 19 and 22. Using government data, it maps and compares average education scores and higher education participation across regions. The findings show stronger outcomes in towns near major universities, particularly in the South East, while coastal and northern towns lag behind. These patterns point to persistent regional disparities that may benefit from targeted policy and investment.
@@ -177,10 +180,11 @@ Despite some limitations, the results point toward meaningful spatial trends tha
 
 ## Recommendations
 
-- **Prioritise Investment in Underserved Regions:** Towns with consistently lower education scores—particularly in the North and coastal areas—should receive targeted funding and policy attention. 
+-  **Prioritise Investment in Underserved Regions:** Towns with consistently lower education scores—particularly in the North and coastal areas—should receive targeted funding and policy attention. 
 
 -   **Improve Data Consistency:** Future datasets should aim for clearer documentation and standardized variable formats to enable more robust modelling and comparative analysis.
 
 -   **Expand Local Education Support:** Increasing access to higher education in smaller towns through outreach, transport support, and scholarship programs could help address current gaps.
 
 -   **Conduct Further Research:** Future studies could explore interactions between economic indicators, infrastructure quality, and education outcomes to build a more holistic understanding of regional disparities.
+:::

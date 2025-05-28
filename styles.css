@@ -1,0 +1,72 @@
+body {
+  background-color: #FFF8DE;
+  color: #333;
+  font-family: "Arial", sans-serif;
+  line-height: 1.6;
+}
+
+h1, h2, h3 {
+  color: #2b2b2b;
+  font-family: 'Georgia', serif;
+  margin-top: 1.5em;
+}
+
+.title {
+  color: #2b2b2b;
+  font-family: "Rubik One", sans-serif;
+  font-size: 36px;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: underline;
+}
+
+.bounding-box {
+  background-color: #9ad3bc;
+  padding: 12px 18px;
+  border-radius: 15px;
+  box-shadow: 5px 5px 10px #00000030;
+}
+
+a {
+  color: #AD3801;
+}
+
+a:hover {
+  color: #FF7001;
+}
+
+figcaption, caption {
+  text-align: center;
+  font-style: italic;
+  font-size: 0.9em;
+  color: #444;
+}
+
+table {
+  background-color: #FFF8DE !important;
+  color: #333;
+  border-collapse: collapse;
+}
+
+th, td {
+  border: 1px solid #ccc;
+  padding: 8px;
+}
+
+table, th, td {
+  border-color: #d2b48c;
+}
+
+.figure {
+  background-color: #FFF8DE; /* match your body bg */
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 5px 5px 10px #00000020;
+  margin-bottom: 2em;
+}
+
+.figure-caption, figcaption {
+  text-align: center;
+  font-style: italic;
+  color: #444;
+}
