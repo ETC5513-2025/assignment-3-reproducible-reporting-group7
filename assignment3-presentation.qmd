@@ -30,3 +30,13 @@ editor: visual
 - Additional indicators: population, parental employment, household income proxies, and region.
 :::
 
+## Methodology
+::: {.bounding-box-methods .smaller-text}
+- Data was cleaned, standardized, and grouped by town.
+- Tools used: `dplyr`, `ggplot2`, `tidymodels`.
+- Analytical methods:
+  - Correlation + Linear regression for continuous education scores.
+  - Logistic regression and feature importance for full-time education likelihood at age 19.
+- Aim: Find which variables are most predictive and how they vary by geography.
+:::
+
