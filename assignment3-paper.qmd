@@ -173,7 +173,7 @@ Despite some limitations, the results point toward meaningful spatial trends tha
 
 ## Recommendations
 
-- **Prioritise Investment in Underserved Regions:** Towns with consistently lower education scores—particularly in the North and coastal areas—should receive targeted funding and policy attention.
+- **Prioritise Investment in Underserved Regions:** Towns with consistently lower education scores—particularly in the North and coastal areas—should receive targeted funding and policy attention. 
 
 - **Improve Data Consistency:** Future datasets should aim for clearer documentation and standardized variable formats to enable more robust modelling and comparative analysis.
 
