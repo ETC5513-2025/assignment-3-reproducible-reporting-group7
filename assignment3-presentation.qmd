@@ -40,3 +40,22 @@ editor: visual
 - Aim: Find which variables are most predictive and how they vary by geography.
 :::
 
+## Results: Town Size & Education Score
+
+:::: {.bounding-box-results-1 .smaller-text}
+
+::: {.slide-flex}
+
+::: {.left}
+- Larger towns tend to have better average education scores by age 22.  
+- Towns near urban centers show stronger outcomes, likely due to proximity to universities and better resources.
+:::
+
+::: {.right}
+![](assignment3-paper_files/figure-html/fig-size-distribution-1.png)
+:::
+
+:::
+
+::::
+
