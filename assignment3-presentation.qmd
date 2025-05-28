@@ -22,3 +22,11 @@ editor: visual
 - The goal: Identify which town-level factors predict better education outcomes and where policy support might be needed.
 :::
 
+## Dataset Description
+::: {.bounding-box-description}
+- Based on UK Census and Department for Education data.
+- 1,100+ towns, grouped by size: Cities, Large, Medium, Small.
+- Variables include education score at 22, qualification level, and full-time education at 19.
+- Additional indicators: population, parental employment, household income proxies, and region.
+:::
+
