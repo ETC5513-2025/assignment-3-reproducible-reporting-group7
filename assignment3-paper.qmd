@@ -32,7 +32,8 @@ library(viridis)
 education_data <- read_csv(here("data/Education_data.csv")) %>% 
   clean_names()
 ```
----
+
+------------------------------------------------------------------------
 
 ## Executive Summary
 
@@ -44,18 +45,21 @@ This dataset looks at how different town characteristics affect the education ou
 
 ## Methodology
 
-This study investigates how town size and characteristics relate to educational outcomes among young people in England. It addresses two research questions:  
-1. How does town size influence average education scores or qualifications achieved by age 22?  
+This study investigates how town size and characteristics relate to educational outcomes among young people in England. It addresses two research questions:\
+1. How does town size influence average education scores or qualifications achieved by age 22?\
 2. Which town characteristics are most predictive of full-time higher education participation at age 19?
 
 The analysis was conducted in RStudio. Data cleaning and transformation were performed using the `tidyverse` suite, and visualizations were generated with `ggplot2`. The dataset originates from UK government sources and includes demographic, geographic, and education indicators such as population size, education scores, and age-based activity.
 
 After filtering rows with missing or placeholder values, relevant variables were standardized and numeric transformations were applied where necessary. Towns were grouped into four size categories: Cities, Large Towns, Medium Towns, and Small Towns. Correlation analysis and linear regression were used to explore the relationship between town size and education scores. Logistic regression and feature importance analysis were applied to identify predictors of full-time higher education participation at age 19.
 
-**Table @tbl-dict** presents key variables used in the analysis. **Figure @fig-size-distribution** shows the distribution of towns by size category, providing context for how towns are represented in the dataset.
+**@tbl-dict** presents key variables used in the analysis. **@fig-size-distribution** shows the distribution of towns by size category, providing context for how towns are represented in the dataset.
 
-```{r tbl-dict, tbl-cap="Table 1. Data Dictionary of Key Variables Used"}
+```{r Table 1}
+#| label: tbl-dict
+#| tbl-cap: "Data Dictionary of Key Variables Used"
 #| echo: false
+
 knitr::kable(data.frame(
   Variable = c("TOWN11NM", "SIZE_FLAG", "POPULATION_2011", 
                "Highest level qualification achieved by age 22: average score", 
@@ -69,8 +73,11 @@ knitr::kable(data.frame(
                   "Percentage in full-time higher education at age 19")))
 ```
 
-```{r fig-size-distribution, fig-cap="Figure 1. Distribution of Towns by Size Category"}
+```{r Figure 1}
+#| label: fig-size-distribution
+#| fig-cap: "Distribution of Towns by Size Category"
 #| echo: false
+
 education_data %>%
   count(size_flag) %>%
   ggplot(aes(x = reorder(size_flag, -n),
@@ -98,21 +105,15 @@ education_data %>%
 
 ## Results
 
-Figure @fig-map shows the spatial distribution of education scores across English towns. Higher scores tend to cluster in the East and South East regions, particularly around Cambridge, Oxford, and the commuter belt near London. In contrast, towns in the North and some coastal regions report lower average education scores by age 22. This geographic trend reflects broader regional disparities in post-secondary educational outcomes.
+@fig-map shows the spatial distribution of education scores across English towns. Higher scores tend to cluster in the East and South East regions, particularly around Cambridge, Oxford, and the commuter belt near London. In contrast, towns in the North and some coastal regions report lower average education scores by age 22. This geographic trend reflects broader regional disparities in post-secondary educational outcomes.
 
 We also explored which characteristics might predict full-time education participation at age 19. While factors such as university presence, income levels, and town size appeared relevant, further analysis was limited by non-numeric data types and inconsistent indicator formats. As such, we focused on mapping overall education performance, which more reliably captured spatial patterns in town-level outcomes.
 
 These results suggest that both regional context and access to educational infrastructure play a role in shaping long-term academic achievement. The map highlights specific areas where targeted investment or policy support may improve educational trajectories.
 
-```{r Extracted unique towns}
+```{r}
 #| echo: false
-town_coords <- education_data %>%
-  distinct(town11nm) %>%
-  mutate(town11nm = tolower(gsub(" BUA", "", town11nm))) %>%
-  geocode(address = town11nm, 
-          method = "osm", 
-          lat = latitude, 
-          long = longitude)
+town_coords <- read_csv(here("data/town_coords.csv"))
 ```
 
 ```{r Joined datasets}
@@ -125,7 +126,10 @@ education_geo <- education_data %>%
 ```
 
 ```{r Map}
+#| label: fig-map
+#| fig-cap: "Education Score by Town"
 #| echo: false
+
 uk_map <- map_data("world", region = "UK")
 
 ggplot() +
@@ -175,8 +179,8 @@ Despite some limitations, the results point toward meaningful spatial trends tha
 
 - **Prioritise Investment in Underserved Regions:** Towns with consistently lower education scores—particularly in the North and coastal areas—should receive targeted funding and policy attention. 
 
-- **Improve Data Consistency:** Future datasets should aim for clearer documentation and standardized variable formats to enable more robust modelling and comparative analysis.
+-   **Improve Data Consistency:** Future datasets should aim for clearer documentation and standardized variable formats to enable more robust modelling and comparative analysis.
 
-- **Expand Local Education Support:** Increasing access to higher education in smaller towns through outreach, transport support, and scholarship programs could help address current gaps.
+-   **Expand Local Education Support:** Increasing access to higher education in smaller towns through outreach, transport support, and scholarship programs could help address current gaps.
 
-- **Conduct Further Research:** Future studies could explore interactions between economic indicators, infrastructure quality, and education outcomes to build a more holistic understanding of regional disparities.
+-   **Conduct Further Research:** Future studies could explore interactions between economic indicators, infrastructure quality, and education outcomes to build a more holistic understanding of regional disparities.
