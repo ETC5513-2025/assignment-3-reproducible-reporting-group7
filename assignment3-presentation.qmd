@@ -1,24 +1,26 @@
 ---
-title: "assignment3-presentation"
-format: revealjs
+title: "Impact of Towns on Young Adults' Education in England"
+author: "Chelsea Rianto (34734260) and Yashitta Bawa (35777591)"
+format:
+  revealjs:
+    toc: true
+    slide-number: true
+    transition: fade
+    theme: default
 editor: visual
 ---
 
-## Quarto
+## Executive Summary
+* Examines how town size, location, and population affect education outcomes in England
+* Stronger education outcomes near major universities, especially in the South East
+* Coastal and northern towns tend to lag behind
+* Highlights need for targeted investment to address regional disparities.
 
-Quarto enables you to weave together content and executable code into a finished presentation. To learn more about Quarto presentations see <https://quarto.org/docs/presentations/>.
 
-## Bullets
-
-When you click the **Render** button a document will be generated that includes:
-
--   Content authored with markdown
--   Output from executable code
-
-## Code
-
-When you click the **Render** button a presentation will be generated that includes both content and the output of embedded code. You can embed code like this:
-
-```{r}
-1 + 1
-```
+## Introduction
+* Dataset includes town sizes of large, medium, and small
+* Includes coastal proximity and demographics
+* Focus on outcomes at age 19 and 22:
+  * Qualification levels
+  * Full-time education or employment
+* Key indicators: education score, employment types, apprenticeship participation
