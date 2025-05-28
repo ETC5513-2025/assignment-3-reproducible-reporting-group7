@@ -37,7 +37,8 @@ education_data <- read_csv(here("data/Education_data.csv")) %>%
 ```
 
 ------------------------------------------------------------------------
-::: {.bounding-box}
+
+::: bounding-box
 ## Executive Summary
 
 This report examines how the characteristics of English towns—such as size, location, and population—relate to education outcomes at ages 19 and 22. Using government data, it maps and compares average education scores and higher education participation across regions. The findings show stronger outcomes in towns near major universities, particularly in the South East, while coastal and northern towns lag behind. These patterns point to persistent regional disparities that may benefit from targeted policy and investment.
@@ -56,7 +57,7 @@ The analysis was conducted in RStudio. Data cleaning and transformation were per
 
 After filtering rows with missing or placeholder values, relevant variables were standardized and numeric transformations were applied where necessary. Towns were grouped into four size categories: Cities, Large Towns, Medium Towns, and Small Towns. Correlation analysis and linear regression were used to explore the relationship between town size and education scores. Logistic regression and feature importance analysis were applied to identify predictors of full-time higher education participation at age 19.
 
-**@tbl-dict** presents key variables used in the analysis. **@fig-size-distribution** shows the distribution of towns by size category, providing context for how towns are represented in the dataset.
+@tbl-dict presents key variables used in the analysis. @fig-size-distribution shows the distribution of towns by size category, providing context for how towns are represented in the dataset.
 
 ```{r Table 1}
 #| label: tbl-dict
@@ -140,8 +141,8 @@ ggplot() +
                aes(x = long, 
                    y = lat, 
                    group = group),
-               fill = "grey95", 
-               color = "white") +
+               fill = "#ededed", 
+               color = "#888888", linewidth = 0.3) +
   geom_point(data = education_geo,
              aes(x = longitude,
                  y = latitude, 
@@ -153,15 +154,22 @@ ggplot() +
                        option = "D", 
                        direction = -1) +
   coord_quickmap(xlim = c(-7, 2), 
-                 ylim = c(49.5, 56)) +
+                ylim = c(49.5, 56)) +
   labs(
-    subtitle = "Figure 1. Education Score by Town",
+    subtitle = "Figure 2. Education Score by Town",
     caption = "Source: UK Government Education Dataset") +
-  theme_bw() +
-  theme(
-    legend.position = "bottom",
-    axis.text = element_blank(),
-    axis.title = element_blank())
+  theme_bw(base_size = 10) +
+theme(
+  plot.background = element_rect(fill = "#FFF8DE", color = NA),
+  panel.background = element_rect(fill = "#FFF8DE", color = NA),
+  legend.background = element_rect(fill = "#FFF8DE", color = NA),
+legend.box.background = element_rect(fill = "#FFF8DE", color = NA),
+  panel.border = element_rect(color = "#333333", fill = NA, linewidth = 0.5),
+  axis.title = element_blank(),
+  axis.text = element_blank(),
+  axis.ticks = element_blank(),
+  panel.grid = element_blank(),
+  plot.margin = margin(0, 0, 0, 0))
 ```
 
 ## Discussion
@@ -180,7 +188,7 @@ Despite some limitations, the results point toward meaningful spatial trends tha
 
 ## Recommendations
 
--  **Prioritise Investment in Underserved Regions:** Towns with consistently lower education scores—particularly in the North and coastal areas—should receive targeted funding and policy attention. 
+-   **Prioritise Investment in Underserved Regions:** Towns with consistently lower education scores—particularly in the North and coastal areas—should receive targeted funding and policy attention.
 
 -   **Improve Data Consistency:** Future datasets should aim for clearer documentation and standardized variable formats to enable more robust modelling and comparative analysis.
 

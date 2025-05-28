@@ -21,7 +21,7 @@ h1, h2, h3 {
 }
 
 .bounding-box {
-  background-color: #9ad3bc;
+  background-color: #84a48b;
   padding: 12px 18px;
   border-radius: 15px;
   box-shadow: 5px 5px 10px #00000030;
@@ -69,4 +69,20 @@ table, th, td {
   text-align: center;
   font-style: italic;
   color: #444;
+}
+
+.figure {
+  background-color: transparent !important;
+  box-shadow: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: none !important;
+}
+
+.cell-output-display {
+  background-color: transparent !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  box-shadow: none !important;
+  border: none !important;
 }
