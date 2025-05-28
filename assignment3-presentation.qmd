@@ -94,3 +94,15 @@ editor: visual
 - Policy efforts could help support youth in smaller or coastal towns by improving access and local resources.
 :::
 
+## Recommendations
+::: {.bounding-box-recommendations}
+- Invest in education outreach and programs in underperforming towns.
+- Strengthen university pathways for students from remote and coastal regions.
+- Use town-level insights to inform targeted, evidence-based interventions.
+:::
+
+---
+
+<div style="display: flex; justify-content: center; align-items: center; height: 80vh;">
+  <h1 style="text-align: center; font-size: 3em;">Thank You!</h1>
+</div>
