@@ -15,94 +15,95 @@ editor: visual
 ---
 
 ## Problem Introduction
+
 ::: {.bounding-box-intro .smaller-text}
-- Education outcomes vary significantly across the UK, often tied to geographic and socio-economic factors.
-- We explore whether characteristics like town size, population, and location influence young people’s access to higher education.
-- Focus is on participation in full-time higher education at ages 19 and 22.
-- The goal: Identify which town-level factors predict better education outcomes and where policy support might be needed.
+-   Education outcomes vary significantly across the UK, often tied to geographic and socio-economic factors.
+-   We explore whether characteristics like town size, population, and location influence young people’s access to higher education.
+-   Focus is on participation in full-time higher education at ages 19 and 22.
+-   The goal: Identify which town-level factors predict better education outcomes and where policy support might be needed.
 :::
 
 ## Dataset Description
-::: {.bounding-box-description}
-- Based on UK Census and Department for Education data.
-- 1,100+ towns, grouped by size: Cities, Large, Medium, Small.
-- Variables include education score at 22, qualification level, and full-time education at 19.
-- Additional indicators: population, parental employment, household income proxies, and region.
+
+::: bounding-box-description
+-   Based on UK Census and Department for Education data.
+-   1,100+ towns, grouped by size: Cities, Large, Medium, Small.
+-   Variables include education score at 22, qualification level, and full-time education at 19.
+-   Additional indicators: population, parental employment, household income proxies, and region.
 :::
 
 ## Methodology
+
 ::: {.bounding-box-methods .smaller-text}
-- Data was cleaned, standardized, and grouped by town.
-- Tools used: `dplyr`, `ggplot2`, `tidymodels`.
-- Analytical methods:
-  - Correlation + Linear regression for continuous education scores.
-  - Logistic regression and feature importance for full-time education likelihood at age 19.
-- Aim: Find which variables are most predictive and how they vary by geography.
+-   Data was cleaned, standardized, and grouped by town.
+-   Tools used: `dplyr`, `ggplot2`, `tidymodels`.
+-   Analytical methods:
+    -   Correlation + Linear regression for continuous education scores.
+    -   Logistic regression and feature importance for full-time education likelihood at age 19.
+-   Aim: Find which variables are most predictive and how they vary by geography.
 :::
 
 ## Results: Town Size & Education Score
 
-:::: {.bounding-box-results-1 .smaller-text}
-
-::: {.slide-flex}
-
-::: {.left}
-- Larger towns tend to have better average education scores by age 22.  
-- Towns near urban centers show stronger outcomes, likely due to proximity to universities and better resources.
+:::::: {.bounding-box-results-1 .smaller-text}
+::::: slide-flex
+::: left
+-   Contrary to expectations, some smaller towns and non-BUA areas have the highest average education scores by age 22.  
+-   Cities and large towns perform worse on average, suggesting urban environments may not always offer an educational advantage.
 :::
 
-::: {.right}
+::: right
 ![](assignment3-paper_files/figure-html/fig-size-distribution-1.png)
 :::
-
-:::
-
-::::
+:::::
+::::::
 
 ## Results: Predictors & Regional Disparities {.smaller-heading}
 
-::: {.bounding-box-results-3 .smaller-text}
+:::::: {.bounding-box-results-3 .smaller-text}
+::::: slide-flex
+::: left
+-   **Most Predictive Factors:**
 
-::: {.slide-flex}
+    -   Parental education level
+    -   Parental employment
+    -   Household income proxy
+    -   Region (South East & London)
 
-::: {.left}
-- **Most Predictive Factors:**
-  - Parental education level
-  - Parental employment
-  - Household income proxy
-  - Region (South East & London)
+-   **Interpretation:** Stable, educated households increase the likelihood of higher education.
 
-- **Interpretation:**
-  Stable, educated households increase the likelihood of higher education.
-  
-- **Regional Outcomes:**
-  Southern areas outperform; northern/coastal towns lag behind, revealing persistent geographic inequalities.
+-   **Regional Outcomes:** Southern areas outperform; northern/coastal towns lag behind, revealing persistent geographic inequalities.
 :::
 
-::: {.right}
+::: right
 ![](assignment3-paper_files/figure-html/fig-map-1.png){width="85%"}
 :::
-
-:::
-
-:::
+:::::
+::::::
 
 ## Conclusions
-::: {.bounding-box-conclusion}
-- Clear disparities exist across town size and region.
-- Education outcomes are better in larger towns and the South.
-- Policy efforts could help support youth in smaller or coastal towns by improving access and local resources.
+
+::: bounding-box-conclusion
+-   Clear disparities exist across town size and region.
+-   Contrary to common assumptions, cities and large towns had lower average education scores, while some smaller or non-BUA areas outperformed them.
+-   Southern regions still show stronger outcomes overall.
+-   Policy efforts should focus on both geographically and structurally disadvantaged areas, including urban centers and coastal towns.
 :::
 
 ## Recommendations
-::: {.bounding-box-recommendations}
-- Invest in education outreach and programs in underperforming towns.
-- Strengthen university pathways for students from remote and coastal regions.
-- Use town-level insights to inform targeted, evidence-based interventions.
+
+::: bounding-box-recommendations
+-   Invest in education outreach and programs in underperforming towns, including both remote and urban areas.
+-   Strengthen university pathways for students from coastal and non-BUA regions.
+-   Use town-level insights to inform targeted, evidence-based interventions addressing regional and structural disparities.
 :::
 
----
+------------------------------------------------------------------------
 
-<div style="display: flex; justify-content: center; align-items: center; height: 80vh;">
-  <h1 style="text-align: center; font-size: 3em;">Thank You!</h1>
-</div>
+::: {style="display: flex; justify-content: center; align-items: center; height: 80vh;"}
+<h1 style="text-align: center; font-size: 3em;">
+
+Thank You!
+
+</h1>
+:::
