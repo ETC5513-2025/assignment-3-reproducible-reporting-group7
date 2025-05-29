@@ -49,15 +49,17 @@ This dataset looks at how different town characteristics affect the education ou
 
 ## Methodology
 
-This study investigates how town size and characteristics relate to educational outcomes among young people in England. It addresses two research questions:\
-1. How does town size influence average education scores or qualifications achieved by age 22?\
+This study investigates how town size and characteristics relate to educational outcomes among young people in England. It addresses two research questions:  
+1. How does town size influence average education scores or qualifications achieved by age 22?  
 2. Which town characteristics are most predictive of full-time higher education participation at age 19?
 
-The analysis was conducted in RStudio. Data cleaning and transformation were performed using the `tidyverse` suite, and visualizations were generated with `ggplot2`. The dataset originates from UK government sources and includes demographic, geographic, and education indicators such as population size, education scores, and age-based activity.
+The analysis was conducted in RStudio. Data cleaning and transformation were performed using the `tidyverse` suite, and visualizations were created using `ggplot2`. The dataset originates from UK government sources and includes demographic, geographic, and education indicators such as population size, education scores, and post-school activity.
 
-After filtering rows with missing or placeholder values, relevant variables were standardized and numeric transformations were applied where necessary. Towns were grouped into four size categories: Cities, Large Towns, Medium Towns, and Small Towns. Correlation analysis and linear regression were used to explore the relationship between town size and education scores. Logistic regression and feature importance analysis were applied to identify predictors of full-time higher education participation at age 19.
+After filtering rows with missing or placeholder values, relevant variables were standardized and numeric transformations were applied where necessary. Towns were categorized using the `SIZE_FLAG` variable, which includes categories such as City, Large Towns, Medium Towns, Small Towns, and various Built-Up Area (BUA) types like Inner London BUA and Not BUA.  
 
-@tbl-dict presents key variables used in the analysis. @fig-size-distribution shows the distribution of towns by size category, providing context for how towns are represented in the dataset.
+Correlation analysis and linear regression were used to explore the relationship between town size and average education scores. Logistic regression and feature importance methods were applied to identify predictors of full-time higher education participation at age 19.
+
+@tbl-dict presents key variables used in the analysis. @fig-size-distribution shows the average education score at age 22 by town size category, revealing that cities and large towns had lower average scores compared to smaller or non-BUA areas—challenging common assumptions about urban educational advantage.
 
 ```{r Table 1}
 #| label: tbl-dict
@@ -79,13 +81,14 @@ knitr::kable(data.frame(
 
 ```{r Figure 1}
 #| label: fig-size-distribution
-#| fig-cap: "Distribution of Towns by Size Category"
+#| fig-cap: "Average Education Score by Town Size Category"
 #| echo: false
 
 education_data %>%
-  count(size_flag) %>%
-  ggplot(aes(x = reorder(size_flag, -n),
-             y = n, 
+  group_by(size_flag) %>%
+  summarise(avg_score = mean(education_score, na.rm = TRUE)) %>%
+  ggplot(aes(x = reorder(size_flag, -avg_score),
+             y = avg_score, 
              fill = size_flag)) +
   geom_col(show.legend = FALSE, 
            width = 0.7) +
@@ -93,9 +96,9 @@ education_data %>%
                        begin = 0.2, 
                        end = 0.85) +
   labs(
-    title = "Town Size Breakdown",
+    title = "Average Education Score by Town Size",
     x = "Town Size Category",
-    y = "Number of Towns") +
+    y = "Avg. Education Score (Age 22)") +
   theme_bw(base_size = 12) +
   theme(
     plot.title = element_text(hjust = 0.5, 
