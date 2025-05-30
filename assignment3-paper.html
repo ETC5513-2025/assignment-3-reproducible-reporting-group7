@@ -22,7 +22,27 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="assignment3-paper_files/libs/clipboard/clipboard.min.js"></script>
@@ -89,9 +109,10 @@ ul.task-list li input[type="checkbox"] {
 <p>This study investigates how town size and characteristics relate to educational outcomes among young people in England. It addresses two research questions:<br>
 1. How does town size influence average education scores or qualifications achieved by age 22?<br>
 2. Which town characteristics are most predictive of full-time higher education participation at age 19?</p>
-<p>The analysis was conducted in RStudio. Data cleaning and transformation were performed using the <code>tidyverse</code> suite, and visualizations were generated with <code>ggplot2</code>. The dataset originates from UK government sources and includes demographic, geographic, and education indicators such as population size, education scores, and age-based activity.</p>
-<p>After filtering rows with missing or placeholder values, relevant variables were standardized and numeric transformations were applied where necessary. Towns were grouped into four size categories: Cities, Large Towns, Medium Towns, and Small Towns. Correlation analysis and linear regression were used to explore the relationship between town size and education scores. Logistic regression and feature importance analysis were applied to identify predictors of full-time higher education participation at age 19.</p>
-<p><a href="#tbl-dict" class="quarto-xref">Table&nbsp;1</a> presents key variables used in the analysis. <a href="#fig-size-distribution" class="quarto-xref">Figure&nbsp;1</a> shows the distribution of towns by size category, providing context for how towns are represented in the dataset.</p>
+<p>The analysis was conducted in RStudio. Data cleaning and transformation were performed using the <code>tidyverse</code> suite, and visualizations were created using <code>ggplot2</code>. The dataset originates from UK government sources and includes demographic, geographic, and education indicators such as population size, education scores, and post-school activity.</p>
+<p>After filtering rows with missing or placeholder values, relevant variables were standardized and numeric transformations were applied where necessary. Towns were categorized using the <code>SIZE_FLAG</code> variable, which includes categories such as City, Large Towns, Medium Towns, Small Towns, and various Built-Up Area (BUA) types like Inner London BUA and Not BUA.</p>
+<p>Correlation analysis and linear regression were used to explore the relationship between town size and average education scores. Logistic regression and feature importance methods were applied to identify predictors of full-time higher education participation at age 19.</p>
+<p><a href="#tbl-dict" class="quarto-xref">Table&nbsp;1</a> presents key variables used in the analysis. <a href="#fig-size-distribution" class="quarto-xref">Figure&nbsp;1</a> shows the average education score at age 22 by town size category, revealing that cities and large towns had lower average scores compared to smaller or non-BUA areas—challenging common assumptions about urban educational advantage.</p>
 <div class="cell">
 <div id="tbl-dict" class="cell quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
@@ -151,7 +172,7 @@ Table&nbsp;1: Data Dictionary of Key Variables Used
 <img src="assignment3-paper_files/figure-html/fig-size-distribution-1.png" class="img-fluid figure-img" width="672">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-size-distribution-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;1: Distribution of Towns by Size Category
+Figure&nbsp;1: Average Education Score by Town Size Category
 </figcaption>
 </figure>
 </div>
@@ -180,27 +201,71 @@ Figure&nbsp;2: Education Score by Town
 </section>
 <section id="discussion" class="level2">
 <h2 class="anchored" data-anchor-id="discussion">Discussion</h2>
-<p>The spatial analysis of education scores reveals notable regional patterns across English towns. Higher scores are concentrated in the South East, particularly near academic hubs such as Cambridge and Oxford. These areas often benefit from stronger educational infrastructure, greater economic resources, and closer proximity to universities, which collectively support better post-secondary outcomes.</p>
+<p>The spatial analysis of education scores reveals notable regional patterns across English towns. Higher scores are concentrated in the South East, particularly near academic hubs such as Cambridge and Oxford. These areas often benefit from stronger educational infrastructure, greater economic resources, and proximity to universities, which collectively support better post-secondary outcomes.</p>
 <p>In contrast, towns in the North and along the coast display consistently lower education scores. This disparity may reflect differences in access to higher education, economic opportunities, or local investment in youth development. Although the original aim included identifying predictors of full-time higher education participation at age 19, limitations in data format and variable types restricted deeper statistical modelling. Nonetheless, the geographic distribution of education outcomes remains clear and informative.</p>
-<p>The lower performance observed in smaller or more remote towns also raises concerns about systemic barriers, such as fewer apprenticeship opportunities or reduced support services. These findings align with broader concerns about regional inequality and the long-term impact of place on educational achievement.</p>
+<p>Interestingly, while it was expected that larger towns and cities would outperform smaller ones, the analysis found that <em>some smaller or non-BUA areas had higher average education scores</em>, while <em>cities and large towns tended to lag</em>. This challenges assumptions about urban advantage and suggests that education quality may not always scale with town size. These findings raise further questions about local education systems, cost of living, and community-level support structures.</p>
 </section>
 <section id="conclusion" class="level2">
 <h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
-<p>The analysis highlights a strong connection between town characteristics and educational attainment. Towns in economically advantaged or university-adjacent regions are more likely to report higher average education scores, while others—particularly in the North or on the coast—tend to fall behind. This reflects a broader need to address structural imbalances in education access and support across the country.</p>
+<p>The analysis highlights a strong connection between town characteristics and educational attainment. Towns in economically advantaged or university-adjacent regions are more likely to report higher average education scores, while others—particularly in the North or on the coast—tend to fall behind. Additionally, the lower scores seen in cities and large towns indicate that educational outcomes are not solely a function of urban access, but may also be influenced by local pressures or resource disparities.</p>
 <p>Despite some limitations, the results point toward meaningful spatial trends that should inform future policy. Ensuring that young people, regardless of where they live, have equal access to quality education remains a critical goal.</p>
 </section>
 <section id="recommendations" class="level2">
 <h2 class="anchored" data-anchor-id="recommendations">Recommendations</h2>
 <ul>
-<li><p><strong>Prioritise Investment in Underserved Regions:</strong> Towns with consistently lower education scores—particularly in the North and coastal areas—should receive targeted funding and policy attention.</p></li>
-<li><p><strong>Improve Data Consistency:</strong> Future datasets should aim for clearer documentation and standardized variable formats to enable more robust modelling and comparative analysis.</p></li>
-<li><p><strong>Expand Local Education Support:</strong> Increasing access to higher education in smaller towns through outreach, transport support, and scholarship programs could help address current gaps.</p></li>
-<li><p><strong>Conduct Further Research:</strong> Future studies could explore interactions between economic indicators, infrastructure quality, and education outcomes to build a more holistic understanding of regional disparities.</p></li>
+<li><strong>Prioritise Investment in Underserved Regions:</strong> Towns with consistently lower education scores—particularly in the North, coastal areas, and certain urban centers—should receive targeted funding and policy attention.</li>
+<li><strong>Improve Data Consistency:</strong> Future datasets should aim for clearer documentation and standardized variable formats to enable more robust modelling and comparative analysis.</li>
+<li><strong>Expand Local Education Support:</strong> Increasing access to higher education in smaller towns and underperforming urban areas through outreach, transport support, and scholarship programs could help address current gaps.</li>
+<li><strong>Conduct Further Research:</strong> Future studies could explore interactions between economic indicators, infrastructure quality, and education outcomes to build a more holistic understanding of regional disparities.</li>
+</ul>
+</section>
+<section id="references" class="level2">
+<h2 class="anchored" data-anchor-id="references">References</h2>
+<p>This report used educational data sourced from the UK Office for National Statistics <span class="citation" data-cites="english_education_2024">(<a href="#ref-english_education_2024" role="doc-biblioref">Office for National Statistics 2023</a>)</span>, and town coordinates were obtained using the <code>tidygeocoder</code> package <span class="citation" data-cites="tidygeocoder_coords">(<a href="#ref-tidygeocoder_coords" role="doc-biblioref">Sadler 2023</a>)</span>.</p>
+<p>The following R packages were used throughout the analysis:</p>
+<ul>
+<li><code>tidyverse</code> <span class="citation" data-cites="tidyverse">(<a href="#ref-tidyverse" role="doc-biblioref">Wickham 2023</a>)</span></li>
+<li><code>dplyr</code> <span class="citation" data-cites="dplyr">(<a href="#ref-dplyr" role="doc-biblioref">Wickham et al. 2023</a>)</span></li>
+<li><code>janitor</code> <span class="citation" data-cites="janitor">(<a href="#ref-janitor" role="doc-biblioref">Firke 2023</a>)</span></li>
+<li><code>here</code> <span class="citation" data-cites="here">(<a href="#ref-here" role="doc-biblioref">Bryan, Hester, and Marwick 2023</a>)</span></li>
+<li><code>kableExtra</code> <span class="citation" data-cites="kableExtra">(<a href="#ref-kableExtra" role="doc-biblioref">Dong 2023</a>)</span></li>
+<li><code>tidygeocoder</code> <span class="citation" data-cites="tidygeocoder_coords">(<a href="#ref-tidygeocoder_coords" role="doc-biblioref">Sadler 2023</a>)</span></li>
+<li><code>viridis</code> <span class="citation" data-cites="viridis">(<a href="#ref-viridis" role="doc-biblioref">Garnier 2023</a>)</span></li>
+<li><code>R</code> <span class="citation" data-cites="R">(<a href="#ref-R" role="doc-biblioref">R Core Team 2024</a>)</span></li>
 </ul>
 </section>
 </div>
 
-</main>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-here" class="csl-entry" role="listitem">
+Bryan, Jenny, Jim Hester, and Ben Marwick. 2023. <em>Here: A Simpler Way to Find Your Files</em>. <a href="https://CRAN.R-project.org/package=here">https://CRAN.R-project.org/package=here</a>.
+</div>
+<div id="ref-kableExtra" class="csl-entry" role="listitem">
+Dong, Zhuoer. 2023. <em>kableExtra: Construct Complex Table with ’Kable’ and Pipe Syntax</em>. <a href="https://CRAN.R-project.org/package=kableExtra">https://CRAN.R-project.org/package=kableExtra</a>.
+</div>
+<div id="ref-janitor" class="csl-entry" role="listitem">
+Firke, Sam. 2023. <em>Janitor: Simple Tools for Examining and Cleaning Dirty Data</em>. <a href="https://CRAN.R-project.org/package=janitor">https://CRAN.R-project.org/package=janitor</a>.
+</div>
+<div id="ref-viridis" class="csl-entry" role="listitem">
+Garnier, Simon. 2023. <em>Viridis: Colorblind-Friendly Color Maps for r</em>. <a href="https://CRAN.R-project.org/package=viridis">https://CRAN.R-project.org/package=viridis</a>.
+</div>
+<div id="ref-english_education_2024" class="csl-entry" role="listitem">
+Office for National Statistics. 2023. <span>“Educational Attainment of Young People in English Towns.”</span> <a href="https://www.ons.gov.uk/peoplepopulationandcommunity/educationandchildcare/articles/whydochildrenandyoungpeopleinsmallertownsdobetteracademicallythanthoseinlargertowns/2023-07-25">https://www.ons.gov.uk/peoplepopulationandcommunity/educationandchildcare/articles/whydochildrenandyoungpeopleinsmallertownsdobetteracademicallythanthoseinlargertowns/2023-07-25</a>.
+</div>
+<div id="ref-R" class="csl-entry" role="listitem">
+R Core Team. 2024. <em>R: A Language and Environment for Statistical Computing</em>. Vienna, Austria: R Foundation for Statistical Computing. <a href="https://www.R-project.org/">https://www.R-project.org/</a>.
+</div>
+<div id="ref-tidygeocoder_coords" class="csl-entry" role="listitem">
+Sadler, Jesse. 2023. <span>“Tidygeocoder: Geocoding Made Easy.”</span> <a href="https://cran.r-project.org/package=tidygeocoder">https://cran.r-project.org/package=tidygeocoder</a>.
+</div>
+<div id="ref-tidyverse" class="csl-entry" role="listitem">
+Wickham, Hadley. 2023. <em>The Tidyverse: Easily Install and Load the ’Tidyverse’</em>. <a href="https://CRAN.R-project.org/package=tidyverse">https://CRAN.R-project.org/package=tidyverse</a>.
+</div>
+<div id="ref-dplyr" class="csl-entry" role="listitem">
+Wickham, Hadley, Romain Francois, Lionel Henry, and Kirill Müller. 2023. <em>Dplyr: A Grammar of Data Manipulation</em>. <a href="https://CRAN.R-project.org/package=dplyr">https://CRAN.R-project.org/package=dplyr</a>.
+</div>
+</div></section></div></main>
 <!-- /main column -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {

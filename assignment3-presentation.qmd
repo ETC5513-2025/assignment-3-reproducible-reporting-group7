@@ -9,7 +9,6 @@ format:
     css: presentation.css
     slide-number: true
     transition: fade
-    toc: true
     center: false
 editor: visual
 ---
