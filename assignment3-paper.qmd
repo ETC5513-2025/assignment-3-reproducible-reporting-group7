@@ -1,13 +1,16 @@
 ---
-title: "Impact of Towns on Young Adults' Education in England"
-author: 
-       - Chelsea Rianto (34734260)
-       - Yashitta Bawa (35777591)
+title: ""
+author: ""
 format:
   pdf:
+    documentclass: scrartcl
+    pdf-engine: xelatex
+    include-before-body: style/title.tex
+    include-in-header: style/preamble.tex
+    mainfont: "Arial"
+    keep-tex: true
     toc: true
-    number-sections: true
-    include-in-header: before-title.tex
+    toc-depth: 2
     fig-cap-location: bottom
     fig-pos: "H"
 editor: visual
@@ -216,5 +219,3 @@ The following R packages were used throughout the analysis:
 - `R` [@R]
 
 :::
-
-\newpage
